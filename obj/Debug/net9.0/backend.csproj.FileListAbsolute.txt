@@ -39,3 +39,6 @@ C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\obj\Debug\net9.0\refint\b
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\obj\Debug\net9.0\backend.pdb
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\obj\Debug\net9.0\ref\backend.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\obj\Debug\net9.0\backend.sourcelink.json
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\DotNetEnv.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Sprache.dll

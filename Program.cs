@@ -1,11 +1,18 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Load environment variables from .env file
+Env.Load();
+
 // Add services to the container
 builder.Services.AddControllers();
+
+// Add HttpClient
+builder.Services.AddHttpClient();
 
 // Configure CORS
 builder.Services.AddCors(options =>
@@ -19,8 +26,7 @@ builder.Services.AddCors(options =>
 });
 
 
-var key = Encoding.ASCII.GetBytes("4A#213FSADFHV931KADFJSF93421KJFASD213A#213FSADFHV931KADFJSF93421KJFASD213");
-
+var key = Encoding.ASCII.GetBytes(Env.GetString("JWT_SECRET_KEY"));
 
 builder.Services.AddAuthentication(x =>
 {

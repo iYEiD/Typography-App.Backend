@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DotNetEnv;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -14,14 +15,15 @@ public class AuthController : ControllerBase
         if (model.Email == "test@example.com" && model.Password == "Password123!")
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("4A#213FSADFHV931KADFJSF93421KJFASD213A#213FSADFHV931KADFJSF93421KJFASD213");
+            var jwtSecretKey = Env.GetString("JWT_SECRET_KEY");
+            var key = Encoding.ASCII.GetBytes(jwtSecretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, model.Email)
                 }),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Expires = DateTime.UtcNow.AddMinutes(15),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
@@ -36,6 +38,6 @@ public class AuthController : ControllerBase
 
 public class LoginModel
 {
-    public string Email { get; set; }
-    public string Password { get; set; }
+    public required string Email { get; set; }
+    public required string Password { get; set; }
 }
