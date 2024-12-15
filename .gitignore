@@ -19,3 +19,6 @@ obj/
 *.log
 *.lock
 *.DS_Store 
+
+# Ignore MinIO data
+data/

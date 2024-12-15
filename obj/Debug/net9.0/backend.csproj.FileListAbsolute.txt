@@ -115,3 +115,7 @@ C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\tr\Micro
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\CommunityToolkit.HighPerformance.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Minio.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\System.IO.Hashing.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\System.Reactive.dll

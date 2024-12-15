@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Text;
 using DotNetEnv;
 using System.Security.Cryptography;
-using System.Linq;
 using Models;
 using Data;
 using Microsoft.AspNetCore.Authentication;
