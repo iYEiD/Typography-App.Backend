@@ -5,6 +5,7 @@ using DotNetEnv;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 using Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,7 @@ builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(x =>
 {
@@ -52,6 +54,14 @@ builder.Services.AddAuthentication(x =>
         ValidateIssuer = false,
         ValidateAudience = false
     };
+}).AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = Env.GetString("GOOGLE_CLIENT_ID");
+    googleOptions.ClientSecret = Env.GetString("GOOGLE_CLIENT_SECRET");
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/api/auth/signin-google";
 });
 
 var app = builder.Build();
