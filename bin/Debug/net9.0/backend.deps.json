@@ -9,6 +9,7 @@
       "backend/1.0.0": {
         "dependencies": {
           "DotNetEnv": "3.1.1",
+          "Elastic.Clients.Elasticsearch": "8.16.3",
           "Microsoft.AspNetCore.Authentication.Google": "9.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.0",
@@ -42,6 +43,25 @@
           "lib/netstandard1.3/DotNetEnv.dll": {
             "assemblyVersion": "3.1.1.0",
             "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "Elastic.Clients.Elasticsearch/8.16.3": {
+        "dependencies": {
+          "Elastic.Transport": "0.5.6"
+        },
+        "runtime": {
+          "lib/net8.0/Elastic.Clients.Elasticsearch.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.16.3.0"
+          }
+        }
+      },
+      "Elastic.Transport/0.5.6": {
+        "runtime": {
+          "lib/net8.0/Elastic.Transport.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.5.6.0"
           }
         }
       },
@@ -1373,6 +1393,20 @@
       "sha512": "sha512-o4SqUVCq0pqHF/HYsZk6k22XGIVmvsDVo+Dy7l0ubq9uQ45JkXswrMRJmYvhGLXWFYF0M5OupMonytB+0zvpGQ==",
       "path": "dotnetenv/3.1.1",
       "hashPath": "dotnetenv.3.1.1.nupkg.sha512"
+    },
+    "Elastic.Clients.Elasticsearch/8.16.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p1Ld3i3kosTxYsvnUIu5evq0zbGX2Uty8W7figuDpejvD9ebxKmRgsId4dZdPjHQ2L/z0t8+rTnBlZ3BsqLCmg==",
+      "path": "elastic.clients.elasticsearch/8.16.3",
+      "hashPath": "elastic.clients.elasticsearch.8.16.3.nupkg.sha512"
+    },
+    "Elastic.Transport/0.5.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4WGaVuBDvdLYgrXNchxXS0dLh92Vb5bH7dgVl0w6cHudXFKh67JZFY2se2LZ3SpUPsQWuv2UKQQRbJB/qbRJBQ==",
+      "path": "elastic.transport/0.5.6",
+      "hashPath": "elastic.transport.0.5.6.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

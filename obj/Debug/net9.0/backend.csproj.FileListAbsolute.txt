@@ -119,3 +119,5 @@ C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Communit
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Minio.dll
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\System.IO.Hashing.dll
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\System.Reactive.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Elastic.Clients.Elasticsearch.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Elastic.Transport.dll

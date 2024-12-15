@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using DotNetEnv;
-using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.EntityFrameworkCore;
 using Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +17,10 @@ builder.Services.AddControllers();
 
 // Add HttpClient
 builder.Services.AddHttpClient();
+
+// Add AIProcessingService
+builder.Services.AddScoped<AIProcessingService>();
+builder.Services.AddScoped<ElasticsearchService>();
 
 // Configure CORS
 builder.Services.AddCors(options =>
