@@ -21,6 +21,7 @@ builder.Services.AddHttpClient();
 // Add AIProcessingService
 builder.Services.AddScoped<AIProcessingService>();
 builder.Services.AddScoped<ElasticsearchService>();
+builder.Services.AddScoped<UserService>();
 
 // Configure CORS
 builder.Services.AddCors(options =>

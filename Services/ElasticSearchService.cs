@@ -1,6 +1,7 @@
 using Elastic.Clients.Elasticsearch;
 using DotNetEnv;
 using Elastic.Transport;
+using DTO.Request;
 
 public class ElasticsearchService
 {
@@ -14,16 +15,10 @@ public class ElasticsearchService
         _client = new ElasticsearchClient(settings);
     }
 
-    public async Task IndexImageDataAsync(string description, string userId, string imageName)
+    public async Task IndexImageDataAsync(ImageIndexRequest request)
     {
-        var imageData = new
-        {
-            description = description,
-            userId = userId,
-            imageName = imageName
-        };
 
-        var response = await _client.IndexAsync(imageData);
+        var response = await _client.IndexAsync(request);
         if (!response.IsValidResponse)
         {
             throw new Exception("Failed to index document in Elasticsearch");
