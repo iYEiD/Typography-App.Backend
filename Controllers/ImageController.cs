@@ -71,4 +71,12 @@ using DTO.Request;
                 return StatusCode(500, $"Error occurred: {e.Message}");
             }
         }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchImage([FromQuery] string query)
+        {
+            Console.WriteLine(query);
+            var result = await _elasticsearchService.SearchImageDataAsync(query);
+            return Ok(result);
+        }
     }

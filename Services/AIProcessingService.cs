@@ -30,7 +30,7 @@ namespace Services
                 var client = _httpClientFactory.CreateClient();
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", OpenAIApiKey);
                 // To do : limit the tokens 1000
-                var jsonContent = new StringContent($"{{ \"model\": \"gpt-4o-mini\", \"messages\": [{{ \"role\": \"user\", \"content\": [{{ \"type\": \"text\", \"text\": \"Give a detailed description of this image in a way where we will save the description in ElasticSearch to allow users to search for it.\" }}, {{ \"type\": \"image_url\", \"image_url\": {{ \"url\": \"data:image/jpeg;base64,{base64Image}\" }} }}] }}] }}", System.Text.Encoding.UTF8, "application/json");
+                var jsonContent = new StringContent($"{{ \"model\": \"gpt-4o-mini\", \"messages\": [{{ \"role\": \"user\", \"content\": [{{ \"type\": \"text\", \"text\": \"You're an image processor.Give a detailed description of this image. Do not include any other information. Just the description.\" }}, {{ \"type\": \"image_url\", \"image_url\": {{ \"url\": \"data:image/jpeg;base64,{base64Image}\" }} }}] }}] }}", System.Text.Encoding.UTF8, "application/json");
 
                 var response = await client.PostAsync(OpenAIApiUrl, jsonContent);
 

@@ -2,6 +2,7 @@ using Elastic.Clients.Elasticsearch;
 using DotNetEnv;
 using Elastic.Transport;
 using DTO.Request;
+using DTO.Response;
 
 public class ElasticsearchService
 {
@@ -23,5 +24,30 @@ public class ElasticsearchService
         {
             throw new Exception("Failed to index document in Elasticsearch");
         }
+    }
+
+    public async Task<List<ImageIndexResponse>> SearchImageDataAsync(string query)
+    {
+        var searchResponse = await _client.SearchAsync<ImageIndexRequest>(s => s
+            .Query(q => q
+                .Match(m => m
+                    .Field(f => f.description)
+                    .Query(query)
+                )
+            )
+        );
+
+        if (!searchResponse.IsValidResponse)
+        {
+            throw new Exception("Failed to search documents in Elasticsearch");
+        }
+
+        return searchResponse.Documents.Select(doc => new ImageIndexResponse
+        {
+            imageName = doc.imageName,
+            description = doc.description,
+            createdAt = doc.createdAt.Value,
+            updatedAt = doc.updatedAt
+        }).ToList();
     }
 }
