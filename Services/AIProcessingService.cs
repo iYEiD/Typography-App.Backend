@@ -30,7 +30,27 @@ namespace Services
                 var client = _httpClientFactory.CreateClient();
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", OpenAIApiKey);
                 // To do : limit the tokens 1000
-                var jsonContent = new StringContent($"{{ \"model\": \"gpt-4o-mini\", \"messages\": [{{ \"role\": \"user\", \"content\": [{{ \"type\": \"text\", \"text\": \"You're an image processor.Give a detailed description of this image. Do not include any other information. Just the description.\" }}, {{ \"type\": \"image_url\", \"image_url\": {{ \"url\": \"data:image/jpeg;base64,{base64Image}\" }} }}] }}] }}", System.Text.Encoding.UTF8, "application/json");
+                var prompt = "You are an advanced image analyzer. Your task is to provide a detailed description of the image provided. " +
+                            "1. If there are people in the image, identify and mention their names if they are famous or political figures. " +
+                            "2. If the image contains a recognizable place, location, or landmark, describe it and mention its name if identifiable. " +
+                            "3. Provide thorough details about the objects, actions, expressions, and the overall setting of the image. " +
+                            "4. Do not include any extra commentary, opinions, or information outside of the image description. " +
+                            "Write the description in one paragraph, nothing else.";
+
+                var jsonContent = new StringContent($@"
+                {{
+                    ""model"": ""gpt-4o-mini"",
+                    ""messages"": [
+                        {{
+                            ""role"": ""user"",
+                            ""content"": [
+                                {{ ""type"": ""text"", ""text"": ""{prompt}"" }},
+                                {{ ""type"": ""image_url"", ""image_url"": {{ ""url"": ""data:image/jpeg;base64,{base64Image}"" }} }}
+                            ]
+                        }}
+                    ],
+                    ""max_tokens"": 1000
+                }}", System.Text.Encoding.UTF8, "application/json");
 
                 var response = await client.PostAsync(OpenAIApiUrl, jsonContent);
 

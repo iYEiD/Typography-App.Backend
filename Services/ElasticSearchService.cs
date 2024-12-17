@@ -33,6 +33,7 @@ public class ElasticsearchService
                 .Match(m => m
                     .Field(f => f.description)
                     .Query(query)
+                    .Operator(Elastic.Clients.Elasticsearch.QueryDsl.Operator.And)
                 )
             )
         );
