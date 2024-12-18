@@ -113,13 +113,22 @@ public class AuthController : ControllerBase
         if (emailClaim == null)
             return BadRequest("Email claim not found");
 
+        var googleIdClaim = claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+        if (googleIdClaim == null)
+            return BadRequest("Google ID claim not found");
+
         var user = _context.Users.SingleOrDefault(u => u.email == emailClaim);
         if (user == null)
         {
             var nameClaim = claims?.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value ?? "DefaultName";
             var randomPassword = HashPassword(Guid.NewGuid().ToString().Substring(0, 10));
-            user = new User { email = emailClaim, name = nameClaim, password = randomPassword };
+            user = new User { email = emailClaim, name = nameClaim, password = randomPassword, google_id = googleIdClaim };
             _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+        }
+        else if (string.IsNullOrEmpty(user.google_id))
+        {
+            user.google_id = googleIdClaim;
             await _context.SaveChangesAsync();
         }
 

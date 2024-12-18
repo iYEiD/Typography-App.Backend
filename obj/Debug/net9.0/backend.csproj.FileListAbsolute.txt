@@ -121,3 +121,5 @@ C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\System.I
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\System.Reactive.dll
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Elastic.Clients.Elasticsearch.dll
 C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\Elastic.Transport.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\MetadataExtractor.dll
+C:\Users\YEiD Lenovo\Documents\AdvancedProject\backend\bin\Debug\net9.0\XmpCore.dll
